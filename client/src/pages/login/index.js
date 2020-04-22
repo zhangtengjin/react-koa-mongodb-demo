@@ -2,11 +2,18 @@ import React from "react";
 import { withRouter } from 'react-router';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import './style.css';
 import Api from  '../../api';
 
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+const formItemLayout = {
+    labelCol: {
+        xs: { span: 24 },
+        sm: { span: 8 }
+    },
+    wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 10 }
+    }
 };
 
 const tailLayout = {
@@ -31,36 +38,41 @@ class Login extends React.Component {
     }
     render () {
         return (
-            <Form
-                {...layout}
-                name="normal_login"
-                onFinish={this.onFinish}
-            >
-                <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[{ required: true, message: '请输入用户名' }]}
+            <div className='user_wrapper'>
+                <div className='user_title'>登录</div>
+                <Form
+                    {...formItemLayout}
+                    name="normal_login"
+                    style={{ marginLeft: "90px" }}
+                    onFinish={this.onFinish}
                 >
-                    <Input prefix={<UserOutlined />} />
-                </Form.Item>
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[{ required: true, message: '请输入密码' }]}
-                >
-                    <Input.Password prefix={<LockOutlined />} />
-                </Form.Item>
-                <Form.Item
-                    {...tailLayout}
-                >
-                    <Button type="primary" htmlType="submit">
-                        登录
-                    </Button>
-                    <Button onClick={this.handleRegister}>
-                        没有账号，去注册
-                    </Button>
-                </Form.Item>
-            </Form>
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[{ required: true, message: '请输入用户名' }]}
+                    >
+                        <Input style={{ width: '400px' }} prefix={<UserOutlined />} />
+                    </Form.Item>
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[{ required: true, message: '请输入密码' }]}
+                    >
+                        <Input.Password style={{ width: '400px' }} prefix={<LockOutlined />} />
+                    </Form.Item>
+                    <Form.Item
+                        {...tailLayout}
+                        className='btn'
+                    >
+                        <Button type="primary" htmlType="submit" style={{ marginRight: '10px' }}>
+                            登录
+                        </Button>
+                        <Button onClick={this.handleRegister}>
+                            没有账号，去注册
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
         )
     }
 }

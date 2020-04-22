@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 import RouterWrap from './routers';
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <RouterWrap />
       </Router>

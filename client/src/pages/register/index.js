@@ -32,33 +32,37 @@ class Register extends React.Component {
     render () {
         // const [form] = Form.useForm();
         return (
-            <Form
-                {...layout}
-                name="register"
-                onFinish={this.onFinish}
-            >
-                <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[{ required: true, message: '请输入用户名' }]}
+            <div className='user_wrapper'>
+                <div className='user_title'>注册</div>
+                <Form
+                    {...layout}
+                    name="register"
+                    onFinish={this.onFinish}
                 >
-                    <Input prefix={<UserOutlined />} />
-                </Form.Item>
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[{ required: true, message: '请输入密码' }]}
-                >
-                    <Input.Password prefix={<LockOutlined />} />
-                </Form.Item>
-                <Form.Item
-                    {...tailLayout}
-                >
-                    <Button type="primary" htmlType="submit">
-                        注册
-                    </Button>
-                </Form.Item>
-            </Form>
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[{ required: true, message: '请输入用户名' }]}
+                    >
+                        <Input style={{ width: '400px' }}prefix={<UserOutlined />} />
+                    </Form.Item>
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[{ required: true, message: '请输入密码' }]}
+                    >
+                        <Input.Password style={{ width: '400px' }} prefix={<LockOutlined />} />
+                    </Form.Item>
+                    <Form.Item
+                        {...tailLayout}
+                        className='btn'
+                    >
+                        <Button type="primary" htmlType="submit">
+                            注册
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
         )
     }
 }
