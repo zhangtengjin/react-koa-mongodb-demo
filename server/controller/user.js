@@ -18,6 +18,15 @@ async function login(ctx) {
     if (res) {
         const passRes = await User.findOne({ username, password });
         if (passRes) {
+            ctx.cookies.set(
+                'token', 1,
+                {
+                  domain: 'localhost',
+                  path: '/',
+                  httpOnly: false,
+                  overwrite: false
+                }
+            )
             ctx.body = setSuccessRes("登录成功!");
         } else {
             ctx.body = setFailedRes("密码不正确!");
