@@ -16,6 +16,11 @@ const RouterWrap = () => {
                 <Route path="/register">
                     <Register />
                 </Route>
+                <Route exact path="/welcome">
+                    <div>
+                        hello Koa ~~~
+                    </div>
+                </Route>
             </Route>
         </Router>
     )

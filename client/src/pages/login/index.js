@@ -18,6 +18,7 @@ class Login extends React.Component {
         let res = await Api.user.login(values);
         if (res.code === 1) {
             message.success('登陆成功！')
+            this.props.history.push('/welcome')
         } else {
             message.error(res.message);
         }
