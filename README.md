@@ -3,6 +3,7 @@
 **极简单的登陆注册 demo 示例**
 
 ### 目录大致结构
+```
 ├── README.md
 ├── client **// 客户端**
 │   ├── README.md
@@ -32,7 +33,7 @@
     │   └── user.js
     └── utils // 工具类
         ├── response.js
-
+```
 ### 技术栈
 react、webpack、koa、mongodb
 ### 本地启动
