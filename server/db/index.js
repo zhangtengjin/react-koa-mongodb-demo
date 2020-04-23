@@ -3,6 +3,7 @@ const dbUrl = 'mongodb://localhost:27017/qingyi';
 
 function connect () {
     mongoose.connect(dbUrl, {
+        useNewUrlParser: true,
         useUnifiedTopology: true
     }, err => {
         if (err) {
